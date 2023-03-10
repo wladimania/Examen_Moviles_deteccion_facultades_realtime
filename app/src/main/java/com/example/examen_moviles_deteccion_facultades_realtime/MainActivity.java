@@ -241,7 +241,6 @@ public class MainActivity extends AppCompatActivity implements OnSuccessListener
     //Procesar la imagen
     private void processImage() {
         imageConverter.run();
-
         rgbFrameBitmap = Bitmap.createBitmap(previewWidth, previewHeight, Bitmap.Config.ARGB_8888);
         rgbFrameBitmap.setPixels(rgbBytes, 0, previewWidth, 0, 0, previewWidth, previewHeight);
         try {
@@ -253,6 +252,7 @@ public class MainActivity extends AppCompatActivity implements OnSuccessListener
             String res="";
             // for (int i = 0; i < probability.size(); i++)
             //    res = res + probability.get(i).getLabel() +  " " +  probability.get(i).getScore()*100 + " % \n";
+            // if que valida que se visualize el primer elemento de la lista y que tenga un porcentaje mayor al 50%
             if (probability.size()>0&&probability.get(0).getScore()>=0.50)
             {
                 res=probability.get(0).getLabel();
